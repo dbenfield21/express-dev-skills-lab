@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Express Developer Skills</title>
 </head>
 <body>
-  <a href="/skills">Skill List</a>
   <h1>Skills</h1>
-  <% if(error) { %>
-    <h2><%= error %></h2>
-  <% } %>
   <ul>
     <% skills.forEach(function(skill) { %>
       <li>
-        <%= skill.text %>
+        <form action="/skills/<%= skill._id %>?_method=DELETE" method="POST" class='delete-form'>
+          <button type="submit">X</button>
+        </form>
+        <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
           - 
-        <%= skill.learned ? 'proficient' : 'not proficient' %>
+        <%= skill.proficient ? 'proficient' : 'not proficient' %>
       </li>
     <% }) %>
   </ul>
+  <a href="/skills/new">Add Skill</a>
 </body>
 </html>
