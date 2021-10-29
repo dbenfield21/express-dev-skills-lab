@@ -7,19 +7,13 @@
   <title>Express Developer Skills</title>
 </head>
 <body>
-  <a href="/skills">Skill List</a>
-  <h1>Skills</h1>
+	<h1>Skills</h1>
   <% if(error) { %>
     <h2><%= error %></h2>
+  <% } else { %>
+    <h2>Skill #<%= todo._id %></h2>
+    <h3><%= skill.text %></h3>
+    <p>Complete: <%= skill.learned ? 'proficient' : 'not proficient' %></p>
   <% } %>
-  <ul>
-    <% skills.forEach(function(skill) { %>
-      <li>
-        <%= skill.text %>
-          - 
-        <%= skill.learned ? 'proficient' : 'not proficient' %>
-      </li>
-    <% }) %>
-  </ul>
+	<a href="/skills">Go back</a>
 </body>
-</html>

@@ -1,7 +1,9 @@
 const skills = [
-  {text: 'Feed llama', done: true, _id: 125223},
-  {text: 'Sleep under the stars', done: false, _id: 127904},
-  {text: 'Buy milk', done: false, _id: 139608},
+  {text: "Java Script", learned: true},
+  {text: "HTML", learned: true},
+  {text: "CSS", learned: true},
+  {text: "Express, Node, MongoDB", learned: false},
+  {text: "React", learned: false},
 ]
 
 const find = (conditions, callback) => {
@@ -11,8 +13,8 @@ const find = (conditions, callback) => {
     if (!(conditions instanceof Object)){
       throw new TypeError('Please pass in an object')
     }
-    // If the object is empty, return all the todos
-    if (Object.keys(conditions).length === 0) return callback(null, todos)
+    // If the object is empty, return all the 
+    if (Object.keys(conditions).length === 0) return callback(null, skills)
 	// deal with errors
   } catch (error) {
     console.log(error)
@@ -20,6 +22,18 @@ const find = (conditions, callback) => {
   }
 }
 
+const findById = (id, callback) =>{
+  try {
+    const skill = skills.find(skill => skill._id === parseInt(id))
+    if (!skill) throw new Error ('No skill was found')
+    return callback(null, skill)
+  } catch (error) {
+    console.log(error)
+    return callback(error, null)
+  }
+}
+
 export { 
-	find
+	find,
+  findById
 }
