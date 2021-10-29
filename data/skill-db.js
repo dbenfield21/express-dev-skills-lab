@@ -1,9 +1,9 @@
 const skills = [
-  {text: "Java Script", learned: true},
-  {text: "HTML", learned: true},
-  {text: "CSS", learned: true},
-  {text: "Express, Node, MongoDB", learned: false},
-  {text: "React", learned: false},
+  {text: "Java Script", learned: true, _id:111},
+  {text: "HTML", learned: true, _id:112},
+  {text: "CSS", learned: true, _id:113},
+  {text: "Express, Node, MongoDB", learned: false, _id:114},
+  {text: "React", learned: false, _id:115},
 ]
 
 const find = (conditions, callback) => {
